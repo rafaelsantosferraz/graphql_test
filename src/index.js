@@ -9,6 +9,6 @@ const server = new ApolloServer({
     dataSources
 });
 
-server.listen(4003).then(({url}) => {
+server.listen(4000).then(({url}) => {
   console.log(`Server listen on ${url}`);
 });

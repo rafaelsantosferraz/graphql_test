@@ -16,11 +16,6 @@ export const userMutations = gql`
             userName: String
         ): User!,
 
-        updateUserPasswordHash(
-            userId: String!,
-            password: String
-        ): User!,
-
         deleteUser(
             userId: String!
         ): Boolean!

@@ -10,18 +10,13 @@ export const updateUser = async (_, args, { dataSources } ) => {
     return userInteractor.updateUser(args);
 }
 
-export const updateUserPasswordHash = async (_, args, { dataSources } ) => {
-    const userInteractor = new UserInteractor(dataSources.userAPI);
-    return userInteractor.updatePassword(args);
-}
-
 export const deleteUser = async (_, args, { dataSources } ) => {
     const userInteractor = new UserInteractor(dataSources.userAPI);
     return userInteractor.deleteUser(args);
 }
 
 export const userMutationsResolvers = {
-    Mutation: { createUser, updateUser, deleteUser, updateUserPasswordHash },
+    Mutation: { createUser, updateUser, deleteUser },
 }
 
 export default userMutationsResolvers;

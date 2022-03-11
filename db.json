@@ -190,14 +190,31 @@
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBU1BVUmpkIiwiaWF0IjoxNjIyMzYxMjcyLCJleHAiOjE2MjI5NjYwNzJ9.GKPpjSbWXbi4wddd0Wt27qHitNHUIESusGzblLuQ1X8"
     },
     {
-      "id": "009a747f-eb35-40d2-a433-1b6e5aee1e5d",
+      "id": "ca95f2e5-8bb4-4a72-9f36-791b77419544",
       "firstName": "Rafael",
       "lastName": "Ferraz",
       "userName": "rafael_ferraz",
-      "passwordHash": "$2b$10$SwlifM9pNtQYBFehuS3lkuBzgAZlcDWXA6gAqN2iIJwU33xOQKQxW",
+      "passwordHash": "$2b$10$ULG0djJsKbCmRuBa4St8nOEY/z7oGo/VusUdlUPi56S6mUq3vQdrS",
       "indexRef": 24,
-      "createdAt": "2022-03-01T12:45:00.007Z",
-      "updatedAt": "2022-03-01T13:03:14.043Z"
+      "createdAt": "2022-03-02T14:51:59.503Z"
+    },
+    {
+      "id": "5e6f3f77-b757-4a6e-9f10-4d0f1b2d8c2a",
+      "firstName": "Rafael2",
+      "lastName": "Ferraz2",
+      "userName": "rafael_ferraz2",
+      "passwordHash": "$2b$10$gbSRgzNlrCV2Th0aEZpJK.Tf4G/OrbD3eyMM8oXkdj0aYhOSwUFAm",
+      "indexRef": 25,
+      "createdAt": "2022-03-11T08:57:38.934Z"
+    },
+    {
+      "id": "d4d84fe1-958a-4985-88b2-b3238044dfe8",
+      "firstName": "Rafael3",
+      "lastName": "Ferraz3",
+      "userName": "rafael_ferraz3",
+      "passwordHash": "$2b$10$QTg/3.GOpv04MegxKMQbUOr7Jo03i7fJY2vJkC3Y8fyGVip3mM7BS",
+      "indexRef": 26,
+      "createdAt": "2022-03-11T09:02:08.480Z"
     }
   ],
   "posts": [

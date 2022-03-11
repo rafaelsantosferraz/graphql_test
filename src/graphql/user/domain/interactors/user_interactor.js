@@ -72,37 +72,9 @@ export class UserInteractor {
         });   
     }
 
-    async updatePassword({ userId, password }){
-        await this.#userExists(userId);
-        console.log( userId);
-        return this.userApi.updateUser({
-            id: userId,
-            passwordHash: await this.#passwordHash(password),
-            updatedAt: new Date().toISOString()
-        });   
-    }
-
     async deleteUser({ userId }){
         await this.#userExists(userId);
         return this.userApi.deleteUser(userId);   
-    }
-
-    async login({ username, password }){
-        const user = await this.#getUserByName(username);
-        const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
-
-        if(!isPasswordValid) throw new ValidationError('Password not valid');
-        const token = jwt.sign(
-            {
-                'userId': user.id
-            },
-            process.env.JWT_SECRET,
-            {
-                expiresIn: '7d'
-            }
-        );
-
-        return token;
     }
 }
 
