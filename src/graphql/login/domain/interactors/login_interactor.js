@@ -1,8 +1,9 @@
-import { ValidationError } from "apollo-server-core";
+import { AuthenticationError, ValidationError } from "apollo-server-core";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 export class LoginInteractor {
+
 
     constructor(userAPI){
         this.userApi = userAPI;
@@ -32,6 +33,18 @@ export class LoginInteractor {
         return await bcrypt.hash(password, 10);
     }
 
+    #createToken(userId){
+        return jwt.sign(
+            {
+                'userId': userId
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: '7d'
+            }
+        );
+    }
+
     async updatePassword({ userId, password }){
         await this.#userExists(userId);
         console.log(userId);
@@ -46,18 +59,29 @@ export class LoginInteractor {
         const user = await this.#getUserByName(username);
         const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
 
-        if(!isPasswordValid) throw new ValidationError('Password not valid');
-        const token = jwt.sign(
-            {
-                'userId': user.id
-            },
-            process.env.JWT_SECRET,
-            {
-                expiresIn: '7d'
-            }
-        );
-
+        if(!isPasswordValid) throw new AuthenticationError('Invalid password');
+        const token = this.#createToken(user.id);
         return token;
+    }
+
+    static isAuthorize(req) {  
+        try{
+            const [ _, token] = req.headers.authorization.split(' ');
+            jwt.verify(token, process.env.JWT_SECRET);
+            return  true;
+        } catch(e) {
+            return false;
+        }
+    }
+
+    static getUserId(req) {  
+        try{
+            const [ _, token] = req.headers.authorization.split(' ');
+            const { userId } = jwt.verify(token, process.env.JWT_SECRET);
+            return  userId;
+        } catch(e){
+            return null;
+        }
     }
 }
 

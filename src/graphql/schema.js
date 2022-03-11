@@ -5,13 +5,14 @@ import postResolvers from "./post/resolvers";
 import PostAPI from "./post/dataSource";
 import UserAPI from "./user/dataSource";
 
+import LoginInteractor from "./login/domain/interactors/login_interactor";
 import loginTypeDefs from "./login/presenters/graphql/typedefs";
 import loginResolvers from "./login/presenters/graphql/resolvers";
 import LoginAPI from "./login/presenters/graphql/dataSource";
 
 
 
-import { gql } from "apollo-server-core";
+import { AuthenticationError, gql } from "apollo-server-core";
 
 const rootTypeDefs = gql`
     type Query {
@@ -29,10 +30,12 @@ const rootResolver = {
     }
 };
 
-export const context = () => {
+export const context = ({ req }) => {
+    
     const BASE_URL = process.env.BASE_URL;
     return {
-        baseUrl: BASE_URL,
+        isAuthorize: LoginInteractor.isAuthorize(req),
+        userId: LoginInteractor.getUserId(req)
     }
 };
 

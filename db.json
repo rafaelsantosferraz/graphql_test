@@ -191,12 +191,13 @@
     },
     {
       "id": "ca95f2e5-8bb4-4a72-9f36-791b77419544",
-      "firstName": "Rafael",
-      "lastName": "Ferraz",
-      "userName": "rafael_ferraz",
+      "firstName": "Rafael up2",
+      "lastName": "Ferraz up2",
+      "userName": "rafael_ferraz_up2",
       "passwordHash": "$2b$10$ULG0djJsKbCmRuBa4St8nOEY/z7oGo/VusUdlUPi56S6mUq3vQdrS",
       "indexRef": 24,
-      "createdAt": "2022-03-02T14:51:59.503Z"
+      "createdAt": "2022-03-02T14:51:59.503Z",
+      "updatedAt": "2022-03-11T13:51:09.354Z"
     },
     {
       "id": "5e6f3f77-b757-4a6e-9f10-4d0f1b2d8c2a",
